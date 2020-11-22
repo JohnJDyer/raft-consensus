@@ -19,15 +19,15 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='raft.proto',
   package='raft',
   syntax='proto3',
-  serialized_pb=_b('\n\nraft.proto\x12\x04raft\"*\n\nRaftEntity\x12\x0b\n\x03pid\x18\x01 \x01(\x03\x12\x0f\n\x07ip_addr\x18\x02 \x01(\x0c\"+\n\nLogEntries\x12\x0c\n\x04term\x18\x01 \x01(\x03\x12\x0f\n\x07\x63ommand\x18\x02 \x01(\x0c\"\xca\x02\n\x0eRaftUDPMessage\x12:\n\x0cmessage_type\x18\x01 \x01(\x0e\x32$.raft.RaftUDPMessage.RaftMessageType\x12 \n\x06leader\x18\x02 \x01(\x0b\x32\x10.raft.RaftEntity\x12\x0c\n\x04term\x18\x03 \x01(\x03\x12 \n\x06sender\x18\x04 \x01(\x0b\x32\x10.raft.RaftEntity\x12\x12\n\ncommit_idx\x18\x05 \x01(\x03\x12\x0f\n\x07log_idx\x18\x06 \x01(\x03\x12\x0f\n\x07\x63ommand\x18\x07 \x01(\x0c\x12\x1d\n\x03log\x18\x08 \x03(\x0b\x32\x10.raft.LogEntries\"U\n\x0fRaftMessageType\x12\t\n\x05HEART\x10\x00\x12\x08\n\x04POLL\x10\x01\x12\x08\n\x04VOTE\x10\x02\x12\x0b\n\x07\x43OMMAND\x10\x03\x12\n\n\x06\x41PPEND\x10\x04\x12\n\n\x06STATUS\x10\x05\x62\x06proto3')
+  serialized_pb=_b('\n\nraft.proto\x12\x04raft\"+\n\nLogEntries\x12\x0c\n\x04term\x18\x01 \x01(\x03\x12\x0f\n\x07\x63ommand\x18\x02 \x01(\x0c\"\x88\x02\n\x0eRaftUDPMessage\x12\'\n\x04type\x18\x01 \x01(\x0e\x32\x19.raft.RaftUDPMessage.Type\x12\x0e\n\x06leader\x18\x02 \x01(\x03\x12\x0c\n\x04term\x18\x03 \x01(\x03\x12\x0e\n\x06sender\x18\x04 \x01(\x03\x12\x12\n\ncommit_idx\x18\x05 \x01(\x03\x12\x0f\n\x07log_idx\x18\x06 \x01(\x03\x12\x0f\n\x07\x63ommand\x18\x07 \x01(\x0c\x12\x1d\n\x03log\x18\x08 \x03(\x0b\x32\x10.raft.LogEntries\"J\n\x04Type\x12\t\n\x05HEART\x10\x00\x12\x08\n\x04POLL\x10\x01\x12\x08\n\x04VOTE\x10\x02\x12\x0b\n\x07\x43OMMAND\x10\x03\x12\n\n\x06\x41PPEND\x10\x04\x12\n\n\x06STATUS\x10\x05\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
-_RAFTUDPMESSAGE_RAFTMESSAGETYPE = _descriptor.EnumDescriptor(
-  name='RaftMessageType',
-  full_name='raft.RaftUDPMessage.RaftMessageType',
+_RAFTUDPMESSAGE_TYPE = _descriptor.EnumDescriptor(
+  name='Type',
+  full_name='raft.RaftUDPMessage.Type',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -58,48 +58,10 @@ _RAFTUDPMESSAGE_RAFTMESSAGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=355,
-  serialized_end=440,
+  serialized_start=256,
+  serialized_end=330,
 )
-_sym_db.RegisterEnumDescriptor(_RAFTUDPMESSAGE_RAFTMESSAGETYPE)
-
-
-_RAFTENTITY = _descriptor.Descriptor(
-  name='RaftEntity',
-  full_name='raft.RaftEntity',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='pid', full_name='raft.RaftEntity.pid', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='ip_addr', full_name='raft.RaftEntity.ip_addr', index=1,
-      number=2, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=20,
-  serialized_end=62,
-)
+_sym_db.RegisterEnumDescriptor(_RAFTUDPMESSAGE_TYPE)
 
 
 _LOGENTRIES = _descriptor.Descriptor(
@@ -135,8 +97,8 @@ _LOGENTRIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=64,
-  serialized_end=107,
+  serialized_start=20,
+  serialized_end=63,
 )
 
 
@@ -148,7 +110,7 @@ _RAFTUDPMESSAGE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='message_type', full_name='raft.RaftUDPMessage.message_type', index=0,
+      name='type', full_name='raft.RaftUDPMessage.type', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -156,8 +118,8 @@ _RAFTUDPMESSAGE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='leader', full_name='raft.RaftUDPMessage.leader', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -170,8 +132,8 @@ _RAFTUDPMESSAGE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='sender', full_name='raft.RaftUDPMessage.sender', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -208,7 +170,7 @@ _RAFTUDPMESSAGE = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _RAFTUDPMESSAGE_RAFTMESSAGETYPE,
+    _RAFTUDPMESSAGE_TYPE,
   ],
   options=None,
   is_extendable=False,
@@ -216,25 +178,15 @@ _RAFTUDPMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=110,
-  serialized_end=440,
+  serialized_start=66,
+  serialized_end=330,
 )
 
-_RAFTUDPMESSAGE.fields_by_name['message_type'].enum_type = _RAFTUDPMESSAGE_RAFTMESSAGETYPE
-_RAFTUDPMESSAGE.fields_by_name['leader'].message_type = _RAFTENTITY
-_RAFTUDPMESSAGE.fields_by_name['sender'].message_type = _RAFTENTITY
+_RAFTUDPMESSAGE.fields_by_name['type'].enum_type = _RAFTUDPMESSAGE_TYPE
 _RAFTUDPMESSAGE.fields_by_name['log'].message_type = _LOGENTRIES
-_RAFTUDPMESSAGE_RAFTMESSAGETYPE.containing_type = _RAFTUDPMESSAGE
-DESCRIPTOR.message_types_by_name['RaftEntity'] = _RAFTENTITY
+_RAFTUDPMESSAGE_TYPE.containing_type = _RAFTUDPMESSAGE
 DESCRIPTOR.message_types_by_name['LogEntries'] = _LOGENTRIES
 DESCRIPTOR.message_types_by_name['RaftUDPMessage'] = _RAFTUDPMESSAGE
-
-RaftEntity = _reflection.GeneratedProtocolMessageType('RaftEntity', (_message.Message,), dict(
-  DESCRIPTOR = _RAFTENTITY,
-  __module__ = 'raft_pb2'
-  # @@protoc_insertion_point(class_scope:raft.RaftEntity)
-  ))
-_sym_db.RegisterMessage(RaftEntity)
 
 LogEntries = _reflection.GeneratedProtocolMessageType('LogEntries', (_message.Message,), dict(
   DESCRIPTOR = _LOGENTRIES,
